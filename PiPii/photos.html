@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>PHOTOS</title>
+</head>
+<script>
+function autoRotateCube1() {
+    let bullets = document.querySelectorAll('.three-d-bullet');
+    let currentIndex = 0;
+
+    setInterval(function () {
+        bullets[currentIndex].checked = true;
+        currentIndex = (currentIndex + 1) % bullets.length;
+    }, 2000);
+}
+
+function autoRotateCube2() {
+    let bullets = document.querySelectorAll('.three-d-bullet2');
+    let currentIndex = 0;
+
+    setInterval(function () {
+        bullets[currentIndex].checked = true;
+        currentIndex = (currentIndex + 1) % bullets.length;
+    }, 2000);
+}
+window.onload = function() {
+    autoRotateCube1();
+    autoRotateCube2();
+};
+
+</script>
+
+<style>
+.title {
+  text-align: center;
+  color: #333;
+  font: 24px Helvetica, Arial, serif;
+}
+.creds {
+  text-align: center;
+  color: #666;
+  font: 12px Helvetica, Arial, serif;
+}
+.creds a {
+  color: #000;
+  text-decoration: none;
+  border-bottom: 1px dotted #000;
+}
+.three-d-container{
+margin:30px auto;
+width:300px;
+height:300px;
+border-radius: 3px;
+position:relative;
+-webkit-perspective:1000px;
+   -moz-perspective:1000px;
+    -ms-perspective:1000px;
+     -o-perspective:1000px;
+        perspective:1000px;
+-webkit-box-shadow:0 20px 60px rgba(0,0,0,0.2),               0 0 40px rgba(0,0,0,0.2) inset;
+   -moz-box-shadow:0 20px 60px rgba(0,0,0,0.2),               0 0 40px rgba(0,0,0,0.2) inset;
+        box-shadow:0 20px 60px rgba(0,0,0,0.2),               0 0 40px rgba(0,0,0,0.2) inset;
+}
+.three-d-cube{
+width:100%;
+height:100%;
+position:absolute;
+-webkit-transition:-webkit-transform 1s;
+   -moz-transition:   -moz-transform 1s;
+     -o-transition:     -o-transform 1s;
+        transition:        transform 1s;
+-webkit-transform-style:preserve-3d;
+   -moz-transform-style:preserve-3d;
+    -ms-transform-style:preserve-3d;
+     -o-transform-style:preserve-3d;
+        transform-style:preserve-3d;
+-webkit-transform:translateZ( -150px );
+   -moz-transform:translateZ( -150px );
+    -ms-transform:translateZ( -150px );
+     -o-transform:translateZ( -150px );
+        transform:translateZ( -150px );
+}
+.three-d-cube .three-d-item{
+width:100%;
+height:100%;
+display:block;
+margin:0;
+position:absolute;
+}
+.three-d-cube .three-d-item img{
+width:100%;
+height:100%;
+display:block;
+margin:0;
+}
+.three-d-item:nth-child(1){
+-webkit-transform:rotateY(   0deg ) translateZ( 150px );
+   -moz-transform:rotateY(   0deg ) translateZ( 150px );
+    -ms-transform:rotateY(   0deg ) translateZ( 150px );
+     -o-transform:rotateY(   0deg ) translateZ( 150px );
+        transform:rotateY(   0deg ) translateZ( 150px );
+}
+.three-d-item:nth-child(2){
+-webkit-transform:rotateX( 180deg ) translateZ( 150px );
+   -moz-transform:rotateX( 180deg ) translateZ( 150px );
+    -ms-transform:rotateX( 180deg ) translateZ( 150px );
+     -o-transform:rotateX( 180deg ) translateZ( 150px );
+        transform:rotateX( 180deg ) translateZ( 150px );
+}
+.three-d-item:nth-child(3){
+-webkit-transform:rotateY(  90deg ) translateZ( 150px );
+   -moz-transform:rotateY(  90deg ) translateZ( 150px );
+    -ms-transform:rotateY(  90deg ) translateZ( 150px );
+     -o-transform:rotateY(  90deg ) translateZ( 150px );
+        transform:rotateY(  90deg ) translateZ( 150px );
+}
+.three-d-item:nth-child(4){
+-webkit-transform:rotateY( -90deg ) translateZ( 150px );
+   -moz-transform:rotateY( -90deg ) translateZ( 150px );
+    -ms-transform:rotateY( -90deg ) translateZ( 150px );
+     -o-transform:rotateY( -90deg ) translateZ( 150px );
+        transform:rotateY( -90deg ) translateZ( 150px );
+}
+.three-d-item:nth-child(5){
+-webkit-transform:rotateX(  90deg ) translateZ( 150px );
+   -moz-transform:rotateX(  90deg ) translateZ( 150px );
+    -ms-transform:rotateX(  90deg ) translateZ( 150px );
+     -o-transform:rotateX(  90deg ) translateZ( 150px );
+        transform:rotateX(  90deg ) translateZ( 150px );
+}
+.three-d-item:nth-child(6){
+-webkit-transform:rotateX( -90deg ) translateZ( 150px );
+   -moz-transform:rotateX( -90deg ) translateZ( 150px );
+    -ms-transform:rotateX( -90deg ) translateZ( 150px );
+     -o-transform:rotateX( -90deg ) translateZ( 150px );
+        transform:rotateX( -90deg ) translateZ( 150px );
+}
+.a:checked ~ .three-d-cube{
+-webkit-transform:translateZ( -150px ) rotateY(    0deg );
+   -moz-transform:translateZ( -150px ) rotateY(    0deg );
+    -ms-transform:translateZ( -150px ) rotateY(    0deg );
+     -o-transform:translateZ( -150px ) rotateY(    0deg );
+        transform:translateZ( -150px ) rotateY(    0deg );
+}
+.b:checked ~ .three-d-cube{
+-webkit-transform:translateZ( -150px ) rotateX( -180deg );
+   -moz-transform:translateZ( -150px ) rotateX( -180deg );
+    -ms-transform:translateZ( -150px ) rotateX( -180deg );
+     -o-transform:translateZ( -150px ) rotateX( -180deg );
+        transform:translateZ( -150px ) rotateX( -180deg );
+}
+.c:checked ~ .three-d-cube{
+-webkit-transform:translateZ( -150px ) rotateY(  -90deg );
+   -moz-transform:translateZ( -150px ) rotateY(  -90deg );
+    -ms-transform:translateZ( -150px ) rotateY(  -90deg );
+     -o-transform:translateZ( -150px ) rotateY(  -90deg );
+        transform:translateZ( -150px ) rotateY(  -90deg );
+}
+.d:checked ~ .three-d-cube{
+-webkit-transform:translateZ( -150px ) rotateY(   90deg );
+   -moz-transform:translateZ( -150px ) rotateY(   90deg );
+    -ms-transform:translateZ( -150px ) rotateY(   90deg );
+     -o-transform:translateZ( -150px ) rotateY(   90deg );
+        transform:translateZ( -150px ) rotateY(   90deg );
+}
+.e:checked ~ .three-d-cube{
+-webkit-transform:translateZ( -150px ) rotateX(  -90deg );
+   -moz-transform:translateZ( -150px ) rotateX(  -90deg );
+    -ms-transform:translateZ( -150px ) rotateX(  -90deg );
+     -o-transform:translateZ( -150px ) rotateX(  -90deg );
+        transform:translateZ( -150px ) rotateX(  -90deg );
+}
+.f:checked ~ .three-d-cube{
+-webkit-transform:translateZ( -150px ) rotateX(   90deg );
+   -moz-transform:translateZ( -150px ) rotateX(   90deg );
+    -ms-transform:translateZ( -150px ) rotateX(   90deg );
+     -o-transform:translateZ( -150px ) rotateX(   90deg );
+        transform:translateZ( -150px ) rotateX(   90deg );
+}
+.three-d-bullet{
+margin:350px 10px 0 0;
+float:left;
+}
+.three-d-bullet:first-child{
+margin:350px 10px 0 88px;
+
+}
+/*CSS for another cube*/
+.title {
+  text-align: center;
+  color: #333;
+  font: 24px Helvetica, Arial, serif;
+}
+.creds {
+  text-align: center;
+  color: #666;
+  font: 12px Helvetica, Arial, serif;
+}
+.creds a {
+  color: #000;
+  text-decoration: none;
+  border-bottom: 1px dotted #000;
+}
+.three-d-container2{
+margin:30px auto;
+width:300px;
+height:300px;
+border-radius: 3px;
+position:relative;
+-webkit-perspective:1000px;
+   -moz-perspective:1000px;
+    -ms-perspective:1000px;
+     -o-perspective:1000px;
+        perspective:1000px;
+-webkit-box-shadow:0 20px 60px rgba(0,0,0,0.2),               0 0 40px rgba(0,0,0,0.2) inset;
+   -moz-box-shadow:0 20px 60px rgba(0,0,0,0.2),               0 0 40px rgba(0,0,0,0.2) inset;
+        box-shadow:0 20px 60px rgba(0,0,0,0.2),               0 0 40px rgba(0,0,0,0.2) inset;
+}
+.three-d-cube2{
+width:100%;
+height:100%;
+position:absolute;
+-webkit-transition:-webkit-transform 1s;
+   -moz-transition:   -moz-transform 1s;
+     -o-transition:     -o-transform 1s;
+        transition:        transform 1s;
+-webkit-transform-style:preserve-3d;
+   -moz-transform-style:preserve-3d;
+    -ms-transform-style:preserve-3d;
+     -o-transform-style:preserve-3d;
+        transform-style:preserve-3d;
+-webkit-transform:translateZ( -150px );
+   -moz-transform:translateZ( -150px );
+    -ms-transform:translateZ( -150px );
+     -o-transform:translateZ( -150px );
+        transform:translateZ( -150px );
+}
+.three-d-cube2 .three-d-item2{
+width:100%;
+height:100%;
+display:block;
+margin:0;
+position:absolute;
+}
+.three-d-cube2 .three-d-item2 img{
+width:100%;
+height:100%;
+display:block;
+margin:0;
+}
+.three-d-item2:nth-child(1){
+-webkit-transform:rotateY(   0deg ) translateZ( 150px );
+   -moz-transform:rotateY(   0deg ) translateZ( 150px );
+    -ms-transform:rotateY(   0deg ) translateZ( 150px );
+     -o-transform:rotateY(   0deg ) translateZ( 150px );
+        transform:rotateY(   0deg ) translateZ( 150px );
+}
+.three-d-item2:nth-child(2){
+-webkit-transform:rotateX( 180deg ) translateZ( 150px );
+   -moz-transform:rotateX( 180deg ) translateZ( 150px );
+    -ms-transform:rotateX( 180deg ) translateZ( 150px );
+     -o-transform:rotateX( 180deg ) translateZ( 150px );
+        transform:rotateX( 180deg ) translateZ( 150px );
+}
+.three-d-item2:nth-child(3){
+-webkit-transform:rotateY(  90deg ) translateZ( 150px );
+   -moz-transform:rotateY(  90deg ) translateZ( 150px );
+    -ms-transform:rotateY(  90deg ) translateZ( 150px );
+     -o-transform:rotateY(  90deg ) translateZ( 150px );
+        transform:rotateY(  90deg ) translateZ( 150px );
+}
+.three-d-item2:nth-child(4){
+-webkit-transform:rotateY( -90deg ) translateZ( 150px );
+   -moz-transform:rotateY( -90deg ) translateZ( 150px );
+    -ms-transform:rotateY( -90deg ) translateZ( 150px );
+     -o-transform:rotateY( -90deg ) translateZ( 150px );
+        transform:rotateY( -90deg ) translateZ( 150px );
+}
+.three-d-item2:nth-child(5){
+-webkit-transform:rotateX(  90deg ) translateZ( 150px );
+   -moz-transform:rotateX(  90deg ) translateZ( 150px );
+    -ms-transform:rotateX(  90deg ) translateZ( 150px );
+     -o-transform:rotateX(  90deg ) translateZ( 150px );
+        transform:rotateX(  90deg ) translateZ( 150px );
+}
+.three-d-item2:nth-child(6){
+-webkit-transform:rotateX( -90deg ) translateZ( 150px );
+   -moz-transform:rotateX( -90deg ) translateZ( 150px );
+    -ms-transform:rotateX( -90deg ) translateZ( 150px );
+     -o-transform:rotateX( -90deg ) translateZ( 150px );
+        transform:rotateX( -90deg ) translateZ( 150px );
+}
+.a2:checked ~ .three-d-cube2{
+-webkit-transform:translateZ( -150px ) rotateY(    0deg );
+   -moz-transform:translateZ( -150px ) rotateY(    0deg );
+    -ms-transform:translateZ( -150px ) rotateY(    0deg );
+     -o-transform:translateZ( -150px ) rotateY(    0deg );
+        transform:translateZ( -150px ) rotateY(    0deg );
+}
+.b2:checked ~ .three-d-cube2{
+-webkit-transform:translateZ( -150px ) rotateX( -180deg );
+   -moz-transform:translateZ( -150px ) rotateX( -180deg );
+    -ms-transform:translateZ( -150px ) rotateX( -180deg );
+     -o-transform:translateZ( -150px ) rotateX( -180deg );
+        transform:translateZ( -150px ) rotateX( -180deg );
+}
+.c2:checked ~ .three-d-cube2{
+-webkit-transform:translateZ( -150px ) rotateY(  -90deg );
+   -moz-transform:translateZ( -150px ) rotateY(  -90deg );
+    -ms-transform:translateZ( -150px ) rotateY(  -90deg );
+     -o-transform:translateZ( -150px ) rotateY(  -90deg );
+        transform:translateZ( -150px ) rotateY(  -90deg );
+}
+.d2:checked ~ .three-d-cube2{
+-webkit-transform:translateZ( -150px ) rotateY(   90deg );
+   -moz-transform:translateZ( -150px ) rotateY(   90deg );
+    -ms-transform:translateZ( -150px ) rotateY(   90deg );
+     -o-transform:translateZ( -150px ) rotateY(   90deg );
+        transform:translateZ( -150px ) rotateY(   90deg );
+}
+.e2:checked ~ .three-d-cube2{
+-webkit-transform:translateZ( -150px ) rotateX(  -90deg );
+   -moz-transform:translateZ( -150px ) rotateX(  -90deg );
+    -ms-transform:translateZ( -150px ) rotateX(  -90deg );
+     -o-transform:translateZ( -150px ) rotateX(  -90deg );
+        transform:translateZ( -150px ) rotateX(  -90deg );
+}
+.f2:checked ~ .three-d-cube2{
+-webkit-transform:translateZ( -150px ) rotateX(   90deg );
+   -moz-transform:translateZ( -150px ) rotateX(   90deg );
+    -ms-transform:translateZ( -150px ) rotateX(   90deg );
+     -o-transform:translateZ( -150px ) rotateX(   90deg );
+        transform:translateZ( -150px ) rotateX(   90deg );
+}
+.three-d-bullet2{
+margin:350px 10px 0 0;
+float:left;
+}
+.three-d-bullet2:first-child{
+margin:350px 10px 0 88px;
+
+}
+
+
+/*--Kelvin codes*/
+
+.Gallary-container {
+  display: block;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(219, 219, 219, 0.5); /* Adjust transparency as needed */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(48, 49, 69, 0.1);
+  align-items: center;
+  text-align: center;
+  height: 800px;
+  backdrop-filter: blur(10px); /* Apply blur effect to the background behind the container */
+  -webkit-backdrop-filter: blur(10px); /* For Safari */
+  margin: 20px; /* Ensure there's space around the container to see the blur effect */
+}
+
+.blur{
+  position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    filter: blur(10px); /* Creates the blur effect */
+    -webkit-filter: blur(10px);
+    z-index: -1; /* Ensures the background is behind everything else */
+}
+
+/*Back ground live gradiand*/
+.css-selector {
+    -webkit-animation: AnimationName 59s ease infinite;
+    -moz-animation: AnimationName 59s ease infinite;
+    -o-animation: AnimationName 59s ease infinite;
+    animation: AnimationName 59s ease infinite;
+}
+
+h2{
+  align-self: center;
+  text-align: center;
+  font-family: "Comic Sans MS", "Comic Sans", "cursive";
+  font-size: 30px;
+  color: white;
+}
+
+@-webkit-keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-o-keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+body {
+  margin: 0;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background: linear-gradient(45deg, #111111, #393939, #68768e, #ef85ff);
+  background-size: 200% 200%;
+  -webkit-animation: AnimationName 8s ease infinite;
+  -moz-animation: AnimationName 8s ease infinite;
+  -o-animation: AnimationName 8s ease infinite;
+  animation: AnimationName 8s ease infinite;
+}
+
+/*Header CSS*/
+@import url("https://fonts.googleapis.com/css?family=Raleway:900&display=swap");
+
+body {
+    margin: 0px;
+}
+
+#container {
+    position: absolute;
+    margin: auto;
+    width: 100vw;
+    height: 80pt;
+    
+
+    filter: url(#threshold) blur(0.6px);
+}
+
+#text1,
+#text2 {
+    position: absolute;
+    width: 100%;
+    display: inline-block;
+
+    font-family: "Comic Sans MS", "Comic Sans", "cursive";
+    font-size: 50pt;
+
+    text-align: center;
+
+    user-select: none;
+}
+
+/*label for 3d cube*/
+.word {
+  margin: auto;
+  color: rgb(0, 0, 0);
+  font-family: "Comic Sans MS", "Comic Sans", "cursive";
+  font-size: 30px;
+  text-shadow: 5px 2px #b1b1b1, 2px 4px #8f8f8f, 3px 5px #828282;
+}
+
+.word2{
+  margin: auto;
+  color: rgb(0, 0, 0);
+  font-family: "Comic Sans MS", "Comic Sans", "cursive";
+  font-size: 30px;
+  
+}
+
+.photo1-container{
+  display: flex;
+}
+.p1-text-container{
+  width: 600px;
+  padding-top: 30px;
+}
+.photo2-container{
+  display: flex;
+}
+.p2-text-container{
+  width: 600px;
+  padding-top: 30px;
+}
+</style>
+<script>
+
+document.addEventListener('DOMContentLoaded', (event) => {
+  const elts = {
+    text1: document.getElementById("text1"),
+    text2: document.getElementById("text2")
+};
+
+const texts = [
+    "PiPii's",
+    "Gallery",
+    "❤︎",
+    "Happy",
+    "Valentine's Day",
+    "Babee Ploy",
+];
+
+const morphTime = 1;
+const cooldownTime = 0.25;
+
+let textIndex = texts.length - 1;
+let time = new Date();
+let morph = 0;
+let cooldown = cooldownTime;
+
+elts.text1.textContent = texts[textIndex % texts.length];
+elts.text2.textContent = texts[(textIndex + 1) % texts.length];
+
+function doMorph() {
+    morph -= cooldown;
+    cooldown = 0;
+
+    let fraction = morph / morphTime;
+
+    if (fraction > 1) {
+        cooldown = cooldownTime;
+        fraction = 1;
+    }
+
+    setMorph(fraction);
+}
+
+function setMorph(fraction) {
+    elts.text2.style.filter = `blur(${Math.min(8 / fraction - 8, 100)}px)`;
+    elts.text2.style.opacity = `${Math.pow(fraction, 0.4) * 100}%`;
+
+    fraction = 1 - fraction;
+    elts.text1.style.filter = `blur(${Math.min(8 / fraction - 8, 100)}px)`;
+    elts.text1.style.opacity = `${Math.pow(fraction, 0.4) * 100}%`;
+
+    elts.text1.textContent = texts[textIndex % texts.length];
+    elts.text2.textContent = texts[(textIndex + 1) % texts.length];
+}
+
+function doCooldown() {
+    morph = 0;
+
+    elts.text2.style.filter = "";
+    elts.text2.style.opacity = "100%";
+
+    elts.text1.style.filter = "";
+    elts.text1.style.opacity = "0%";
+}
+
+function animate() {
+    requestAnimationFrame(animate);
+
+    let newTime = new Date();
+    let shouldIncrementIndex = cooldown > 0;
+    let dt = (newTime - time) / 1000;
+    time = newTime;
+
+    cooldown -= dt;
+
+    if (cooldown <= 0) {
+        if (shouldIncrementIndex) {
+            textIndex++;
+        }
+
+        doMorph();
+    } else {
+        doCooldown();
+    }
+}
+
+animate();
+
+// Script for text animation 3d cube label
+var words = ['Hi i like HTML', 'I also like css', 'Lorem ipsum dolor sit amet', ' consectetur adipiscing elit', 'sed do eiusmod tempor incididunt'],
+    part,
+    i = 0,
+    offset = 0,
+    len = words.length,
+    forwards = true,
+    skip_count = 0,
+    skip_delay = 15,
+    speed = 70;
+var wordflick = function () {
+  setInterval(function () {
+    if (forwards) {
+      if (offset >= words[i].length) {
+        ++skip_count;
+        if (skip_count == skip_delay) {
+          forwards = false;
+          skip_count = 0;
+        }
+      }
+    }
+    else {
+      if (offset == 0) {
+        forwards = true;
+        i++;
+        offset = 0;
+        if (i >= len) {
+          i = 0;
+        }
+      }
+    }
+    part = words[i].substr(0, offset);
+    if (skip_count == 0) {
+      if (forwards) {
+        offset++;
+      }
+      else {
+        offset--;
+      }
+    }
+    $('.word').text(part);
+  },speed);
+};
+
+$(document).ready(function () {
+  wordflick();
+});
+});
+
+
+</script>
+<body>
+  <div class="blur"></div>
+  <div id="container">
+    <span id="text1"></span>
+    <span id="text2"></span>
+  </div>
+
+<svg id="filters">
+    <defs>
+        <filter id="threshold">
+            <feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0
+                  0 1 0 0 0
+                  0 0 1 0 0
+                  0 0 0 255 -140" />
+        </filter>
+    </defs>
+</svg>
+  <div class="Gallary-container">
+    <div class="photo1-container">
+      <div class="p1-text-container">
+        <div class="word"></div>
+        <div class="word2"></div>
+      </div>
+      <a href="">
+        <section class="three-d-container">
+              <input type="radio" checked class="three-d-bullet a" name="three-d">
+              <input type="radio" class="three-d-bullet b" name="three-d">
+              <input type="radio" class="three-d-bullet c" name="three-d">
+              <input type="radio" class="three-d-bullet d" name="three-d">
+              <input type="radio" class="three-d-bullet e" name="three-d">
+              <input type="radio" class="three-d-bullet f" name="three-d">
+              <div class="three-d-cube">
+                <figure class="three-d-item">
+                  <img src="1.jpg" alt="">
+                </figure>
+                <figure class="three-d-item">
+                  <img src="2.jpg" alt="">
+                </figure>
+                <figure class="three-d-item">
+                  <img src="3.jpg" alt="">
+                </figure>
+                <figure class="three-d-item">
+                  <img src="4.png" alt="">
+                </figure>
+                <figure class="three-d-item">
+                  <img src="5.png" alt="">
+                </figure>
+                <figure class="three-d-item">
+                  <img src="6.jpg" alt="">
+                </figure>
+              </div>
+        </section>
+      </a>
+    </div>
+    <div class="photo2-container">
+      <a href="">
+        <section class="three-d-container2">
+          <input type="radio" checked class="three-d-bullet a2" name="three-d">
+          <input type="radio" class="three-d-bullet b2" name="three-d">
+          <input type="radio" class="three-d-bullet c2" name="three-d">
+          <input type="radio" class="three-d-bullet d2" name="three-d">
+          <input type="radio" class="three-d-bullet e2" name="three-d">
+          <input type="radio" class="three-d-bullet f2" name="three-d">
+          <div class="three-d-cube2">
+            <figure class="three-d-item2">
+              <img src="1.jpg" alt="">
+            </figure>
+            <figure class="three-d-item2">
+              <img src="2.jpg" alt="">
+            </figure>
+            <figure class="three-d-item2">
+              <img src="3.jpg" alt="">
+            </figure>
+            <figure class="three-d-item2">
+              <img src="4.png" alt="">
+            </figure>
+            <figure class="three-d-item2">
+              <img src="5.png" alt="">
+            </figure>
+            <figure class="three-d-item2">
+              <img src="6.jpg" alt="">
+            </figure>
+          </div>
+      </section>
+      </a>
+      <div class="p2-text-container">
+        <div class="word"></div>
+      </div>
+  </div>
+
+  </div>
+</body>
+
+</html>
